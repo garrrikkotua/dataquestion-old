@@ -3,7 +3,9 @@ import QuestionForm from "./components/questionform";
 import CsvReader from "./components/csv_component";
 import DataWrapper from "./components/data_wrapper";
 import {ReactComponent as Logo} from "./assets/DataQuestion.svg";
-
+import Grid from "@mui/material/Grid";
+import FilePicker from "./components/file_picker";
+import Typography from "@mui/material/Typography";
 
 class App extends Component {
     constructor(props) {
@@ -44,27 +46,31 @@ class App extends Component {
                     ws={this.state.worksheet}
                     sheet_name={this.state.sheet_name}
                 />
-                <h1>
-                    Table name: {this.state.sheet_name}
-                </h1>
-                <QuestionForm
-                    text={this.state.text}
-                    db={this.db}
-                    setState={this.setState}
-                />
-                <h2>
-                    {this.state.error_message}
-                </h2>
-                {
-                    this.state.loading ?
-                        <p>Loading...</p>
-                        :
-                        <CsvReader
-                        showing_data={this.state.showing_data}
-                        showing_columns={this.state.showing_columns}
-                        setState={this.setState}
+                <Grid container spacing={2}>
+                    <Grid item xs={2}>
+                        <h1>
+                            Table name: {this.state.sheet_name}
+                        </h1>
+                        <FilePicker
+                            setState={this.setState}
                         />
-                }
+                    </Grid>
+                    <Grid item xs={7}>
+                        <QuestionForm
+                            text={this.state.text}
+                            db={this.db}
+                            setState={this.setState}
+                        />
+                        <h2>
+                            {this.state.error_message}
+                        </h2>
+                    </Grid>
+                </Grid>
+                <CsvReader
+                    showing_data={this.state.showing_data}
+                    showing_columns={this.state.showing_columns}
+                    loading={this.state.loading}
+                />
             </div>
         );
     }

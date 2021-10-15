@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 class QuestionForm extends Component {
 
@@ -69,15 +71,19 @@ class QuestionForm extends Component {
     render() {
     return (
       <form onSubmit={this.handleSubmit}>
-          <textarea
-              name="text"
+          <TextField
+              name={"text"}
+              id={'question-field'}
+              label="Query Editor"
               placeholder="Your question to the database. In plain English or SQL :)"
               value={this.props.text}
               onChange={this.handleChange}
-              rows="10"
-              cols="45"
+              multiline
+              rows={7}
+              fullWidth
+              variant="filled"
           />
-          <button type={'submit'}>Run</button>
+          <Button variant="outlined" type={'submit'}>Execute Query</Button>
       </form>
     );
     };

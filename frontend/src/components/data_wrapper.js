@@ -97,4 +97,4 @@ const DataWrapper = (props) => {
 
 };
 
-export default DataWrapper;
+export default React.memo(DataWrapper);
