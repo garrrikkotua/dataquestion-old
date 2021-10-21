@@ -4,9 +4,6 @@ import LinearProgress from "@mui/material/LinearProgress";
 
 
 class CsvReader extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         return this.props.loading !== nextProps.loading;

@@ -75,7 +75,7 @@ class QuestionForm extends Component {
               name={"text"}
               id={'question-field'}
               label="Query Editor"
-              placeholder="Your question to the database. In plain English or SQL :)"
+              placeholder="Your question to the database. In SQL :)"
               value={this.props.text}
               onChange={this.handleChange}
               multiline
